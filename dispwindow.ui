@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DispWindow</class>
+ <widget class="QMainWindow" name="DispWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>720</width>
+    <height>540</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>'Oly Cow - Herodotus</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="label_season">
+        <property name="text">
+         <string>Season:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBox_season">
+        <item>
+         <property name="text">
+          <string>2014-2015 Cascade Effect</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>2013-2014 Block Party!</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>2012-2013 Ring it Up!</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>2011-2012 Bowled Over!</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>2010-2011 Get Over It!</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>2009-2010 Hot Shot!</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>2008-2009 Face Off!</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <spacer name="spacer_L">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_max_pages">
+        <property name="text">
+         <string>Max Pages:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="spinBox_max_pages"/>
+      </item>
+      <item>
+       <spacer name="spacer_R">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_fetch">
+        <property name="text">
+         <string>Fetch</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QTableView" name="tableView_main">
+      <attribute name="verticalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
+     </widget>
+    </item>
+    <item>
+     <widget class="QProgressBar" name="progressBar_download">
+      <property name="value">
+       <number>100</number>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
