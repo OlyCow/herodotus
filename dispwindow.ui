@@ -157,7 +157,266 @@
        </widget>
       </item>
       <item row="1" column="5">
-       <widget class="QComboBox" name="comboBox_state"/>
+       <widget class="QComboBox" name="comboBox_state">
+        <property name="maxVisibleItems">
+         <number>20</number>
+        </property>
+        <item>
+         <property name="text">
+          <string>---- Any State ----</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Alabama</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Alaska</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Arizona</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Arkansas</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>California</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Colorado</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Connecticut</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Delaware</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Florida</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Georgia</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Hawaii</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Idaho</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Illinois</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Indiana</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Iowa</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Kansas</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Kentucky</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Louisiana</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Maine</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Maryland</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Massachusetts</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Michigan</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Minnesota</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Mississippi</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Missouri</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Montana</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Nebraska</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Nevada</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>New Hampshire</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>New Jersey</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>New Mexico</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>New York</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>North Carolina</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>North Dakota</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Ohio</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Oklahoma</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Oregon</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Pennsylvania</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Rhode Island</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>South Carolina</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>South Dakota</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Tennessee</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Texas</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Utah</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Vermont</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Virginia</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Washington</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>West Virginia</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Wisconsin</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Wyoming</string>
+         </property>
+        </item>
+       </widget>
       </item>
       <item row="1" column="1">
        <widget class="QLabel" name="label_name">
@@ -175,6 +434,9 @@
       </item>
       <item row="0" column="5">
        <widget class="QComboBox" name="comboBox_country">
+        <property name="maxVisibleItems">
+         <number>20</number>
+        </property>
         <item>
          <property name="text">
           <string>---- Any Country ----</string>
@@ -182,7 +444,7 @@
         </item>
         <item>
          <property name="text">
-          <string>Canada</string>
+          <string>U.S.A.</string>
          </property>
         </item>
         <item>
@@ -192,7 +454,67 @@
         </item>
         <item>
          <property name="text">
-          <string>U.S.A.</string>
+          <string>Canada</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Australia</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>China</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Germany</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>India</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Netherlands</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>New Zealand</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Romania</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Russia</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Saudi Arabia</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>South Korea</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Spain</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Taiwan</string>
          </property>
         </item>
        </widget>

@@ -24,6 +24,11 @@ DispWindow::DispWindow(QWidget *parent) :
 	table_teams->setHorizontalHeaderLabels(header_labels);
 
 	ui->tableView_main->setModel(table_teams);
+
+	ui->comboBox_rookie->insertSeparator(1);
+	ui->comboBox_country->insertSeparator(1);
+	ui->comboBox_country->insertSeparator(5);
+	ui->comboBox_state->insertSeparator(1);
 }
 
 DispWindow::~DispWindow()
