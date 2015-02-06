@@ -10,7 +10,8 @@ DispWindow::DispWindow(QWidget *parent) :
 	ui(new Ui::DispWindow),
 	manager(new QNetworkAccessManager(this)),
 	list_teams(new QStringList()),
-	table_teams(new QStandardItemModel(0, 6))
+	table_teams(new QStandardItemModel(0, 6)),
+	page(0)
 {
 	ui->setupUi(this);
 
@@ -29,6 +30,11 @@ DispWindow::DispWindow(QWidget *parent) :
 	ui->comboBox_country->insertSeparator(1);
 	ui->comboBox_country->insertSeparator(5);
 	ui->comboBox_state->insertSeparator(1);
+
+	QObject::connect(	manager,	&QNetworkAccessManager::finished,
+						this,		&DispWindow::page_downloaded);
+	QObject::connect(	this,	&DispWindow::download_done,
+						this,	&DispWindow::download_year);
 }
 
 DispWindow::~DispWindow()
@@ -41,14 +47,26 @@ DispWindow::~DispWindow()
 
 void DispWindow::on_pushButton_fetch_clicked()
 {
-	QObject::connect(	manager,	&QNetworkAccessManager::finished,
-						this,		&DispWindow::downloaded);
-	QUrl url(URL_part_I + "0" + URL_part_II + "2014" + URL_part_III);
-	QNetworkRequest fetch(url);
-	manager->get(fetch);
+	download_year(2014);
 }
 
-void DispWindow::downloaded(QNetworkReply* reply)
+void DispWindow::download_year(int year)
+{
+	QString url_string;
+	QTextStream url_stream(&url_string);
+	url_stream << URL_part_I;
+	url_stream << page;
+	url_stream << URL_part_II;
+	url_stream << year;
+	url_stream << URL_part_III;
+	url_stream.flush();
+	QUrl url(url_string);
+	QNetworkRequest fetch(url);
+	manager->get(fetch);
+	page++;
+}
+
+void DispWindow::page_downloaded(QNetworkReply* reply)
 {
 	QStringList name_list;
 	QStringList number_list;
@@ -66,7 +84,7 @@ void DispWindow::downloaded(QNetworkReply* reply)
 		QString name = finder.match(data_read).captured(4);
 		QString website = "www.usfirst.org" + finder.match(data_read).captured(5);
 		QString number = finder.match(data_read).captured(6);
-		if (i>=267 && i<=291) {
+		if (i>=269 && i<=293) {
 			name_list.push_back(name);
 			number_list.push_back(number);
 			website_list.push_back(website);
@@ -82,6 +100,11 @@ void DispWindow::downloaded(QNetworkReply* reply)
 				country_list,
 				state_list,
 				city_list);
+	if (page <= 140) {
+		emit download_done(2014);
+	} else {
+		page = 0;
+	}
 }
 
 void DispWindow::add_teams(	QStringList name_list,
@@ -91,13 +114,15 @@ void DispWindow::add_teams(	QStringList name_list,
 							QStringList state_list,
 							QStringList city_list	)
 {
-	for (int i=0; i<number_list.length(); i++) {
+	int init_length = list_teams->length();
+	int add_length = name_list.length();
+	for (int i=0; i<add_length; i++) {
 		list_teams->push_back(number_list[i]);
 		table_teams->appendRow(new QStandardItem(number_list[i]));
-		table_teams->setItem(i, 1, new QStandardItem(name_list[i]));
-		table_teams->setItem(i, 2, new QStandardItem(website_list[i]));
-		table_teams->setItem(i, 3, new QStandardItem(country_list[i]));
-		table_teams->setItem(i, 4, new QStandardItem(state_list[i]));
-		table_teams->setItem(i, 5, new QStandardItem(city_list[i]));
+		table_teams->setItem(init_length+i, 1, new QStandardItem(name_list[i]));
+		table_teams->setItem(init_length+i, 2, new QStandardItem(website_list[i]));
+		table_teams->setItem(init_length+i, 3, new QStandardItem(country_list[i]));
+		table_teams->setItem(init_length+i, 4, new QStandardItem(state_list[i]));
+		table_teams->setItem(init_length+i, 5, new QStandardItem(city_list[i]));
 	}
 }

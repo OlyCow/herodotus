@@ -10,6 +10,7 @@
 #include <QByteArray>
 #include <QString>
 #include <QStringList>
+#include <QTextStream>
 #include <QRegularExpression>
 
 #include <QtNetwork/QNetworkAccessManager>
@@ -37,8 +38,12 @@ public:
 					QStringList state_list,
 					QStringList city_list	);
 
+signals:
+	void download_done(int year);
+
 private slots:
-	void downloaded(QNetworkReply* reply);
+	void download_year(int year);
+	void page_downloaded(QNetworkReply* reply);
 
 	void on_pushButton_fetch_clicked();
 
@@ -47,6 +52,8 @@ private:
 	QNetworkAccessManager* manager;
 	QStringList* list_teams;
 	QStandardItemModel* table_teams;
+
+	int page;
 
 	static QString URL_part_I;
 	static QString URL_part_II;
