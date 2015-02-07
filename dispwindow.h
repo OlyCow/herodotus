@@ -66,6 +66,13 @@ private:
 	QStringList* list_teams;
 	QStandardItemModel* table_teams;
 
+	QStringList* list_numbers;
+	QStringList* list_names;
+	QStringList* list_websites;
+	QStringList* list_countries;
+	QStringList* list_states;
+	QStringList* list_cities;
+
 	int page;
 
 	static QString URL_part_I;

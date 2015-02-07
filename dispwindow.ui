@@ -110,7 +110,7 @@
       <item>
        <widget class="QPushButton" name="pushButton_about">
         <property name="text">
-         <string>About</string>
+         <string>About Herodotus</string>
         </property>
        </widget>
       </item>

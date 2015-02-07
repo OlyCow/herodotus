@@ -12,7 +12,13 @@ DispWindow::DispWindow(QWidget *parent) :
 	manager(new QNetworkAccessManager(this)),
 	list_teams(new QStringList()),
 	table_teams(new QStandardItemModel(0, 6)),
-	page(0)
+	page(0),
+	list_numbers(new QStringList()),
+	list_names(new QStringList()),
+	list_websites(new QStringList()),
+	list_countries(new QStringList()),
+	list_states(new QStringList()),
+	list_cities(new QStringList())
 {
 	ui->setupUi(this);
 
@@ -38,12 +44,34 @@ DispWindow::DispWindow(QWidget *parent) :
 		dir_program.mkdir("data/");
 		dir_program.cd("data/");
 	}
-	QFile check_exists = dir_program.absolutePath() + "/Cascade Effect.txt";
-	if (!check_exists.exists()) {
-		check_exists.open(QFile::WriteOnly | QFile::Text);
-		QTextStream buf(&check_exists);
+	QFile data_file = dir_program.absolutePath() + Herodotus::name_text[0];
+	if (!data_file.exists()) {
+		data_file.open(QFile::WriteOnly | QFile::Text);
+		QTextStream buf(&data_file);
 		buf.flush();
-		check_exists.close();
+		data_file.close();
+	}
+	data_file.open(QFile::ReadOnly | QFile::Text);
+	QTextStream buf(&data_file);
+	QString data_read = buf.readLine();
+	while (!buf.atEnd()) {
+		data_read = buf.readLine();
+		QRegularExpression finder("\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\"");
+		list_numbers->push_back(finder.match(data_read).captured(1));
+		list_names->push_back(finder.match(data_read).captured(2));
+		list_websites->push_back(finder.match(data_read).captured(3));
+		list_countries->push_back(finder.match(data_read).captured(4));
+		list_states->push_back(finder.match(data_read).captured(5));
+		list_cities->push_back(finder.match(data_read).captured(6));
+	}
+
+	for (int i=0; i<list_numbers->length(); i++) {
+		table_teams->appendRow(new QStandardItem(list_numbers->at(i)));
+		table_teams->setItem(i, 1, new QStandardItem(list_names->at(i)));
+		table_teams->setItem(i, 2, new QStandardItem(list_websites->at(i)));
+		table_teams->setItem(i, 3, new QStandardItem(list_countries->at(i)));
+		table_teams->setItem(i, 4, new QStandardItem(list_states->at(i)));
+		table_teams->setItem(i, 5, new QStandardItem(list_cities->at(i)));
 	}
 
 	QObject::connect(	manager,	&QNetworkAccessManager::finished,
@@ -54,6 +82,13 @@ DispWindow::DispWindow(QWidget *parent) :
 
 DispWindow::~DispWindow()
 {
+	delete list_numbers;
+	delete list_names;
+	delete list_websites;
+	delete list_countries;
+	delete list_states;
+	delete list_cities;
+
 	delete table_teams;
 	delete list_teams;
 	delete manager;
@@ -64,6 +99,25 @@ void DispWindow::on_pushButton_close_clicked()
 {
 	this->close();
 }
+
+void DispWindow::on_pushButton_clear_clicked()
+{
+	ui->lineEdit_number->setText("");
+	ui->lineEdit_name->setText("");
+	ui->comboBox_rookie->setCurrentIndex(0);
+	ui->comboBox_country->setCurrentIndex(0);
+	ui->comboBox_state->setCurrentIndex(0);
+	ui->lineEdit_city->setText("");
+}
+void DispWindow::on_pushButton_search_clicked()
+{
+}
+void DispWindow::on_pushButton_browse_clicked()
+{
+	this->on_pushButton_clear_clicked();
+	this->on_pushButton_search_clicked();
+}
+
 
 //void DispWindow::on_pushButton_fetch_clicked()
 //{
@@ -166,24 +220,4 @@ void DispWindow::write_file()
 	}
 	buf.flush();
 	writer.close();
-}
-
-void DispWindow::on_pushButton_clear_clicked()
-{
-	ui->lineEdit_number->setText("");
-	ui->lineEdit_name->setText("");
-	ui->comboBox_rookie->setCurrentIndex(0);
-	ui->comboBox_country->setCurrentIndex(0);
-	ui->comboBox_state->setCurrentIndex(0);
-	ui->lineEdit_city->setText("");
-}
-
-void DispWindow::on_pushButton_search_clicked()
-{
-}
-
-void DispWindow::on_pushButton_browse_clicked()
-{
-	this->on_pushButton_clear_clicked();
-	this->on_pushButton_search_clicked();
 }
