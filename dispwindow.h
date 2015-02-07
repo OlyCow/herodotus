@@ -13,6 +13,9 @@
 #include <QTextStream>
 #include <QRegularExpression>
 
+#include <QDir>
+#include <QFile>
+
 #include <QtNetwork/QNetworkAccessManager>
 #include <QtNetwork/QNetworkRequest>
 #include <QtNetwork/QNetworkReply>
@@ -44,11 +47,15 @@ signals:
 private slots:
 	void download_year(int year);
 	void page_downloaded(QNetworkReply* reply);
+	void write_file();
+
+	void on_pushButton_close_clicked();
 
 	void on_pushButton_fetch_clicked();
 
 private:
 	Ui::DispWindow* ui;
+	QDir dir_program;
 	QNetworkAccessManager* manager;
 	QStringList* list_teams;
 	QStandardItemModel* table_teams;

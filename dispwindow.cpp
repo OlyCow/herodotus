@@ -8,6 +8,7 @@ QString DispWindow::URL_part_III	= "&Country=USA&StateProv=&ZipCode=&Radius=&op=
 DispWindow::DispWindow(QWidget *parent) :
 	QMainWindow(parent),
 	ui(new Ui::DispWindow),
+	dir_program(QDir(QCoreApplication::applicationDirPath())),
 	manager(new QNetworkAccessManager(this)),
 	list_teams(new QStringList()),
 	table_teams(new QStandardItemModel(0, 6)),
@@ -31,6 +32,20 @@ DispWindow::DispWindow(QWidget *parent) :
 	ui->comboBox_country->insertSeparator(5);
 	ui->comboBox_state->insertSeparator(1);
 
+	dir_program = QCoreApplication::applicationDirPath() + "data/";
+	if (!dir_program.exists()) {
+		dir_program = QCoreApplication::applicationDirPath();
+		dir_program.mkdir("data/");
+		dir_program.cd("data/");
+	}
+	QFile check_exists = dir_program.absolutePath() + "/Cascade Effect.txt";
+	if (!check_exists.exists()) {
+		check_exists.open(QFile::WriteOnly | QFile::Text);
+		QTextStream buf(&check_exists);
+		buf.flush();
+		check_exists.close();
+	}
+
 	QObject::connect(	manager,	&QNetworkAccessManager::finished,
 						this,		&DispWindow::page_downloaded);
 	QObject::connect(	this,	&DispWindow::download_done,
@@ -43,6 +58,11 @@ DispWindow::~DispWindow()
 	delete list_teams;
 	delete manager;
 	delete ui;
+}
+
+void DispWindow::on_pushButton_close_clicked()
+{
+	this->close();
 }
 
 void DispWindow::on_pushButton_fetch_clicked()
@@ -100,9 +120,12 @@ void DispWindow::page_downloaded(QNetworkReply* reply)
 				country_list,
 				state_list,
 				city_list);
-	if (page <= 140) {
+	if (page <= 150) {
 		emit download_done(2014);
 	} else {
+		if (page == 151) {
+			write_file();
+		}
 		page = 0;
 	}
 }
@@ -125,4 +148,22 @@ void DispWindow::add_teams(	QStringList name_list,
 		table_teams->setItem(init_length+i, 4, new QStandardItem(state_list[i]));
 		table_teams->setItem(init_length+i, 5, new QStandardItem(city_list[i]));
 	}
+}
+
+void DispWindow::write_file()
+{
+	QFile writer = dir_program.absolutePath() + "/Cascade Effect.txt";
+	writer.open(QFile::ReadWrite | QFile::Text | QFile::Append);
+	QTextStream buf(&writer);
+	buf << "Number,Name,Website,Country,State,City" << endl;
+	for (int i=0; i<list_teams->length(); i++) {
+		buf << "\"" << table_teams->item(i, 0)->text() << "\",";
+		buf << "\"" << table_teams->item(i, 1)->text() << "\",";
+		buf << "\"" << table_teams->item(i, 2)->text() << "\",";
+		buf << "\"" << table_teams->item(i, 3)->text() << "\",";
+		buf << "\"" << table_teams->item(i, 4)->text() << "\",";
+		buf << "\"" << table_teams->item(i, 5)->text() << "\"" << endl;
+	}
+	buf.flush();
+	writer.close();
 }
