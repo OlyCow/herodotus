@@ -1991,7 +1991,7 @@ Number,Name,Website,Country,State,City
 "6421","CKN2.0","www.usfirst.org/whats-going-on/team/94427?ProgramCode=FTC","US","WA","Tumwater"
 "6422","Green Dragons","www.usfirst.org/whats-going-on/team/90861?ProgramCode=FTC","US","AZ","Phoenix"
 "6423","Robo Tigers","www.usfirst.org/whats-going-on/team/92557?ProgramCode=FTC","US","TX","Texarkana"
-"6424","Oly Cows","www.usfirst.org/whats-going-on/team/94463?ProgramCode=FTC","US","WA","Olympia"
+"6424","'Oly Cow","www.usfirst.org/whats-going-on/team/94463?ProgramCode=FTC","US","WA","Olympia"
 "6425","Dino Bots","www.usfirst.org/whats-going-on/team/93105?ProgramCode=FTC","US","NC","Camden"
 "6426","TBD","www.usfirst.org/whats-going-on/team/94515?ProgramCode=FTC","US","WI","Rhinelander"
 "6427","Wright Angle","www.usfirst.org/whats-going-on/team/94505?ProgramCode=FTC","US","WA","Tacoma"

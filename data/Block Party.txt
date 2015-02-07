@@ -1633,7 +1633,7 @@ Number,Name,Website,Country,State,City
 "6421","A.C.R.O.N.Y.M","www.usfirst.org/whats-going-on/team/208039?ProgramCode=FTC","US","WA","Tumwater"
 "6422","Green Dragons","www.usfirst.org/whats-going-on/team/208041?ProgramCode=FTC","US","AZ","Phoenix"
 "6423","Robo Tigers1","www.usfirst.org/whats-going-on/team/208043?ProgramCode=FTC","US","TX","Texarkana"
-"6424","Oly Cow","www.usfirst.org/whats-going-on/team/208045?ProgramCode=FTC","US","WA","Olympia"
+"6424","'Oly Cow","www.usfirst.org/whats-going-on/team/208045?ProgramCode=FTC","US","WA","Olympia"
 "6425","Dino Bots","www.usfirst.org/whats-going-on/team/208047?ProgramCode=FTC","US","NC","Camden"
 "6426","TBD","www.usfirst.org/whats-going-on/team/208049?ProgramCode=FTC","US","WI","Rhinelander"
 "6427","Wright Angle","www.usfirst.org/whats-going-on/team/208051?ProgramCode=FTC","US","WA","Tacoma"

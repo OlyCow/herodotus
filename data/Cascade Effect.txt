@@ -1378,7 +1378,7 @@ Number,Name,Website,Country,State,City
 "6421","Thunder Bots","www.usfirst.org/whats-going-on/team/293205?ProgramCode=FTC","US","WA","Tumwater"
 "6422","Green Dragons","www.usfirst.org/whats-going-on/team/293207?ProgramCode=FTC","US","AZ","Phoenix"
 "6423","Robo Tigers","www.usfirst.org/whats-going-on/team/293209?ProgramCode=FTC","US","TX","Texarkana"
-"6424","Oly Cow","www.usfirst.org/whats-going-on/team/293211?ProgramCode=FTC","US","WA","Olympia"
+"6424","'Oly Cow","www.usfirst.org/whats-going-on/team/293211?ProgramCode=FTC","US","WA","Olympia"
 "6426","TBD","www.usfirst.org/whats-going-on/team/293215?ProgramCode=FTC","US","WI","Rhinelander"
 "6427","Wright Angle","www.usfirst.org/whats-going-on/team/293217?ProgramCode=FTC","US","WA","Tacoma"
 "6429","Wired  ones","www.usfirst.org/whats-going-on/team/293219?ProgramCode=FTC","US","IL","highland park"
