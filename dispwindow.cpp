@@ -50,7 +50,7 @@ DispWindow::DispWindow(QWidget *parent) :
 		dir_program.mkdir("data/");
 		dir_program.cd("data/");
 	}
-	QFile data_file = dir_program.absolutePath() + Herodotus::name_text[0];
+	QFile data_file(QString(dir_program.absolutePath() + Herodotus::name_text[0]));
 	if (!data_file.exists()) {
 		data_file.open(QFile::WriteOnly | QFile::Text);
 		QTextStream buf(&data_file);
@@ -116,7 +116,7 @@ void DispWindow::clear_table()
 }
 void DispWindow::populate_table(int index)
 {
-	QFile data_file = dir_program.absolutePath() + Herodotus::name_text[index];
+	QFile data_file(QString(dir_program.absolutePath() + Herodotus::name_text[index]));
 	if (!data_file.exists()) {
 		data_file.open(QFile::WriteOnly | QFile::Text);
 		QTextStream buf(&data_file);
