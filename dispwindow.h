@@ -16,9 +16,9 @@
 #include <QDir>
 #include <QFile>
 
-#include <QtNetwork/QNetworkAccessManager>
-#include <QtNetwork/QNetworkRequest>
-#include <QtNetwork/QNetworkReply>
+//#include <QtNetwork/QNetworkAccessManager>
+//#include <QtNetwork/QNetworkRequest>
+//#include <QtNetwork/QNetworkReply>
 
 #include <QMainWindow>
 
