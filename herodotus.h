@@ -4,7 +4,7 @@
 #include <QString>
 
 namespace Herodotus {
-	extern QString name_text[8];
+	extern const QString name_text[8];
 }
 
 #endif // HERODOTUS_H
