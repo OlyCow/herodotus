@@ -95,6 +95,57 @@ DispWindow::~DispWindow()
 	delete ui;
 }
 
+void DispWindow::clear_table()
+{
+	table_teams->removeRows(0,table_teams->rowCount());
+	int team_count = list_numbers->length();
+	for (int i=0; i<team_count; i++) {
+		list_numbers->pop_back();
+		list_names->pop_back();
+		list_websites->pop_back();
+		list_countries->pop_back();
+		list_states->pop_back();
+		list_cities->pop_back();
+	}
+}
+void DispWindow::populate_table(int index)
+{
+	QFile data_file = dir_program.absolutePath() + Herodotus::name_text[index];
+	if (!data_file.exists()) {
+		data_file.open(QFile::WriteOnly | QFile::Text);
+		QTextStream buf(&data_file);
+		buf.flush();
+		data_file.close();
+	}
+	data_file.open(QFile::ReadOnly | QFile::Text);
+	QTextStream buf(&data_file);
+	QString data_read = buf.readLine();
+	while (!buf.atEnd()) {
+		data_read = buf.readLine();
+		QRegularExpression finder("\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\"");
+		list_numbers->push_back(finder.match(data_read).captured(1));
+		list_names->push_back(finder.match(data_read).captured(2));
+		list_websites->push_back(finder.match(data_read).captured(3));
+		list_countries->push_back(finder.match(data_read).captured(4));
+		list_states->push_back(finder.match(data_read).captured(5));
+		list_cities->push_back(finder.match(data_read).captured(6));
+	}
+	for (int i=0; i<list_numbers->length(); i++) {
+		table_teams->appendRow(new QStandardItem(list_numbers->at(i)));
+		table_teams->setItem(i, 1, new QStandardItem(list_names->at(i)));
+		table_teams->setItem(i, 2, new QStandardItem(list_websites->at(i)));
+		table_teams->setItem(i, 3, new QStandardItem(list_countries->at(i)));
+		table_teams->setItem(i, 4, new QStandardItem(list_states->at(i)));
+		table_teams->setItem(i, 5, new QStandardItem(list_cities->at(i)));
+	}
+}
+
+void DispWindow::on_comboBox_season_currentIndexChanged(int index)
+{
+	clear_table();
+	populate_table(index);
+}
+
 void DispWindow::on_pushButton_close_clicked()
 {
 	this->close();
