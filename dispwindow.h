@@ -22,6 +22,8 @@
 
 #include <QMainWindow>
 
+#include"herodotus.h"
+
 namespace Ui {
 class DispWindow;
 }
@@ -49,7 +51,7 @@ private slots:
 	void page_downloaded(QNetworkReply* reply);
 	void write_file();
 
-	//	void on_pushButton_fetch_clicked();
+	//void on_pushButton_fetch_clicked();
 
 	void on_pushButton_close_clicked();
 
