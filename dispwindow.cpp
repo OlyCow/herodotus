@@ -65,10 +65,10 @@ void DispWindow::on_pushButton_close_clicked()
 	this->close();
 }
 
-void DispWindow::on_pushButton_fetch_clicked()
-{
-	download_year(2014);
-}
+//void DispWindow::on_pushButton_fetch_clicked()
+//{
+//	download_year(2014);
+//}
 
 void DispWindow::download_year(int year)
 {
@@ -166,4 +166,24 @@ void DispWindow::write_file()
 	}
 	buf.flush();
 	writer.close();
+}
+
+void DispWindow::on_pushButton_clear_clicked()
+{
+	ui->lineEdit_number->setText("");
+	ui->lineEdit_name->setText("");
+	ui->comboBox_rookie->setCurrentIndex(0);
+	ui->comboBox_country->setCurrentIndex(0);
+	ui->comboBox_state->setCurrentIndex(0);
+	ui->lineEdit_city->setText("");
+}
+
+void DispWindow::on_pushButton_search_clicked()
+{
+}
+
+void DispWindow::on_pushButton_browse_clicked()
+{
+	this->on_pushButton_clear_clicked();
+	this->on_pushButton_search_clicked();
 }

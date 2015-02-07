@@ -49,9 +49,13 @@ private slots:
 	void page_downloaded(QNetworkReply* reply);
 	void write_file();
 
+	//	void on_pushButton_fetch_clicked();
+
 	void on_pushButton_close_clicked();
 
-	void on_pushButton_fetch_clicked();
+	void on_pushButton_clear_clicked();
+	void on_pushButton_search_clicked();
+	void on_pushButton_browse_clicked();
 
 private:
 	Ui::DispWindow* ui;
