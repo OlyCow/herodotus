@@ -14,8 +14,10 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        dispwindow.cpp
+        dispwindow.cpp \
+    herodotus.cpp
 
-HEADERS  += dispwindow.h
+HEADERS  += dispwindow.h \
+    herodotus.h
 
 FORMS    += dispwindow.ui

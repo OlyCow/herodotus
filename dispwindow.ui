@@ -20,8 +20,29 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="layout_main">
+    <property name="spacing">
+     <number>10</number>
+    </property>
+    <property name="leftMargin">
+     <number>12</number>
+    </property>
+    <property name="topMargin">
+     <number>12</number>
+    </property>
+    <property name="rightMargin">
+     <number>12</number>
+    </property>
+    <property name="bottomMargin">
+     <number>12</number>
+    </property>
     <item>
      <layout class="QHBoxLayout" name="layout_season">
+      <property name="spacing">
+       <number>8</number>
+      </property>
+      <property name="bottomMargin">
+       <number>6</number>
+      </property>
       <item>
        <widget class="QComboBox" name="comboBox_season">
         <item>
@@ -59,6 +80,11 @@
           <string>2008-09 Face Off!</string>
          </property>
         </item>
+        <item>
+         <property name="text">
+          <string>2007-08 Quad Quandary</string>
+         </property>
+        </item>
        </widget>
       </item>
       <item>
@@ -82,16 +108,9 @@
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_fetch">
-        <property name="text">
-         <string>Fetch</string>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QPushButton" name="pushButton_about">
         <property name="text">
-         <string>About</string>
+         <string>About Herodotus</string>
         </property>
        </widget>
       </item>
@@ -105,29 +124,31 @@
      </layout>
     </item>
     <item>
-     <widget class="Line" name="line_main">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-    </item>
-    <item>
      <layout class="QGridLayout" name="layout_params">
+      <property name="topMargin">
+       <number>6</number>
+      </property>
+      <property name="bottomMargin">
+       <number>6</number>
+      </property>
       <item row="0" column="3" rowspan="3">
        <spacer name="spacer_params_mid">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Maximum</enum>
+        </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>40</width>
+          <width>60</width>
           <height>20</height>
          </size>
         </property>
        </spacer>
       </item>
       <item row="0" column="0" rowspan="3">
-       <spacer name="spacer_L">
+       <spacer name="spacer_params_L">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
@@ -140,7 +161,23 @@
        </spacer>
       </item>
       <item row="2" column="5">
-       <widget class="QLineEdit" name="lineEdit_city"/>
+       <widget class="QLineEdit" name="lineEdit_city">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>240</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="clearButtonEnabled">
+         <bool>true</bool>
+        </property>
+       </widget>
       </item>
       <item row="0" column="4">
        <widget class="QLabel" name="label_country">
@@ -158,6 +195,18 @@
       </item>
       <item row="1" column="5">
        <widget class="QComboBox" name="comboBox_state">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>240</width>
+          <height>16777215</height>
+         </size>
+        </property>
         <property name="maxVisibleItems">
          <number>20</number>
         </property>
@@ -434,6 +483,18 @@
       </item>
       <item row="0" column="5">
        <widget class="QComboBox" name="comboBox_country">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>240</width>
+          <height>16777215</height>
+         </size>
+        </property>
         <property name="maxVisibleItems">
          <number>20</number>
         </property>
@@ -521,6 +582,18 @@
       </item>
       <item row="2" column="2">
        <widget class="QComboBox" name="comboBox_rookie">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>240</width>
+          <height>16777215</height>
+         </size>
+        </property>
         <item>
          <property name="text">
           <string>---- Any Year ----</string>
@@ -561,6 +634,11 @@
           <string>2008-09 Face Off!</string>
          </property>
         </item>
+        <item>
+         <property name="text">
+          <string>2007-08 Quad Quandary</string>
+         </property>
+        </item>
        </widget>
       </item>
       <item row="2" column="4">
@@ -571,10 +649,51 @@
        </widget>
       </item>
       <item row="0" column="2">
-       <widget class="QLineEdit" name="lineEdit_number"/>
+       <widget class="QLineEdit" name="lineEdit_number">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>240</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="maxLength">
+         <number>4</number>
+        </property>
+        <property name="clearButtonEnabled">
+         <bool>true</bool>
+        </property>
+       </widget>
       </item>
       <item row="1" column="2">
-       <widget class="QLineEdit" name="lineEdit_name"/>
+       <widget class="QLineEdit" name="lineEdit_name">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>240</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="clearButtonEnabled">
+         <bool>true</bool>
+        </property>
+       </widget>
       </item>
       <item row="0" column="1">
        <widget class="QLabel" name="label_number">
@@ -584,7 +703,7 @@
        </widget>
       </item>
       <item row="0" column="6" rowspan="3">
-       <spacer name="spacer_R">
+       <spacer name="spacer_params_R">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
@@ -600,6 +719,18 @@
     </item>
     <item>
      <layout class="QHBoxLayout" name="layout_search">
+      <property name="spacing">
+       <number>10</number>
+      </property>
+      <property name="leftMargin">
+       <number>24</number>
+      </property>
+      <property name="topMargin">
+       <number>6</number>
+      </property>
+      <property name="rightMargin">
+       <number>24</number>
+      </property>
       <item>
        <widget class="Line" name="line_L">
         <property name="sizePolicy">
@@ -651,6 +782,12 @@
     </item>
     <item>
      <widget class="QTableView" name="tableView_main">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>240</height>
+       </size>
+      </property>
       <property name="editTriggers">
        <set>QAbstractItemView::NoEditTriggers</set>
       </property>
@@ -666,8 +803,20 @@
       <property name="sortingEnabled">
        <bool>true</bool>
       </property>
+      <property name="wordWrap">
+       <bool>false</bool>
+      </property>
+      <property name="cornerButtonEnabled">
+       <bool>false</bool>
+      </property>
+      <attribute name="horizontalHeaderStretchLastSection">
+       <bool>true</bool>
+      </attribute>
       <attribute name="verticalHeaderVisible">
        <bool>false</bool>
+      </attribute>
+      <attribute name="verticalHeaderDefaultSectionSize">
+       <number>25</number>
       </attribute>
      </widget>
     </item>
