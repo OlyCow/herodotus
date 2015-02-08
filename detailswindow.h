@@ -6,8 +6,10 @@
 #include <QTimer>
 
 #include <QString>
+#include <QStringList>
 #include <QRegularExpression>
 #include <QTextStream>
+#include <QPixmap>
 
 #include <QDir>
 #include <QFile>
@@ -41,6 +43,8 @@ private:
 	Ui::DetailsWindow *ui;
 	QTimer* timer_anim;
 	int season;
+	QStringList list_pics;
+	QPixmap* current_pic;
 
 	QString number;
 	QString name;

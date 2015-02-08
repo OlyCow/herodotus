@@ -5,6 +5,7 @@ DetailsWindow::DetailsWindow(int current_season, QString team_number, QWidget* p
 	QDialog(parent),
 	ui(new Ui::DetailsWindow),
 	timer_anim(new QTimer()),
+	current_pic(new QPixmap()),
 	season(current_season),
 	number(team_number)
 {
@@ -28,6 +29,22 @@ DetailsWindow::DetailsWindow(int current_season, QString team_number, QWidget* p
 			break;
 		}
 	}
+	QString pic_dir_str = QCoreApplication::applicationDirPath() + "/data/";
+	QString season_dir_str = Herodotus::name_text[season];
+	season_dir_str.remove(".txt");
+	pic_dir_str += season_dir_str + "/";
+	pic_dir_str += number + "/";
+	QDir pic_dir(pic_dir_str);
+	if (!pic_dir.exists()) {
+		pic_dir.mkpath(pic_dir.absolutePath());
+	}
+	pic_dir.setFilter(QDir::Files);
+	pic_dir.setSorting(QDir::Name);
+//	pic_dir.setNameFilters(QStringList("*.png"));
+	list_pics = pic_dir.entryList();
+	if (list_pics.size() > 0) {
+		current_pic = new QPixmap(list_pics[0]);
+	}
 
 	QString title = "Herodotus - Team #" + number + ": " + name;
 	this->setWindowTitle(title);
@@ -38,6 +55,7 @@ DetailsWindow::DetailsWindow(int current_season, QString team_number, QWidget* p
 	ui->label_state->setText(state);
 	ui->label_city->setText(city);
 	ui->label_website->setText("<a href=\"" + website + "\">Team Website<\\a>");
+	ui->label_pic->setPixmap(*current_pic);
 
 	QObject::connect(	timer_anim,	&QTimer::timeout,
 						this,		&DetailsWindow::fwd_pic);
@@ -47,6 +65,7 @@ DetailsWindow::DetailsWindow(int current_season, QString team_number, QWidget* p
 
 DetailsWindow::~DetailsWindow()
 {
+	delete current_pic;
 	delete timer_anim;
 	delete ui;
 }
