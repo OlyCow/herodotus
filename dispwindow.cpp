@@ -50,7 +50,7 @@ DispWindow::DispWindow(QWidget *parent) :
 		dir_program.mkdir("data/");
 		dir_program.cd("data/");
 	}
-	QFile data_file = dir_program.absolutePath() + Herodotus::name_text[0];
+	QFile data_file(QString(dir_program.absolutePath() + Herodotus::name_text[0]));
 	if (!data_file.exists()) {
 		data_file.open(QFile::WriteOnly | QFile::Text);
 		QTextStream buf(&data_file);
@@ -116,7 +116,7 @@ void DispWindow::clear_table()
 }
 void DispWindow::populate_table(int index)
 {
-	QFile data_file = dir_program.absolutePath() + Herodotus::name_text[index];
+	QFile data_file(QString(dir_program.absolutePath() + Herodotus::name_text[index]));
 	if (!data_file.exists()) {
 		data_file.open(QFile::WriteOnly | QFile::Text);
 		QTextStream buf(&data_file);
@@ -168,6 +168,48 @@ void DispWindow::on_pushButton_clear_clicked()
 }
 void DispWindow::on_pushButton_search_clicked()
 {
+	table_teams->removeRows(0,table_teams->rowCount());
+	std::vector<int> result_indices;
+	QString number_search = ui->lineEdit_number->text();
+	QString name_search = ui->lineEdit_name->text();
+	QString city_search = ui->lineEdit_city->text();
+	QStringList name_parts;
+	QRegularExpression finder("\\b(?:\\W|[0-9])*(\\w+)\\b");
+	QString name_copy = name_search;
+	QString match = "test";
+	while (match != "") {
+		match = finder.match(name_copy).captured(1);
+		name_copy.remove(match);
+		if (match != ""){
+			name_parts.push_back(match);
+		}
+	}
+	QString aggregate = number_search + name_search + city_search;
+	for (int i=0; i<list_numbers->size(); i++) {
+		if (number_search != "" && number_search == list_numbers->at(i)) {
+			result_indices.push_back(i);
+		} else if (name_search != "") {
+			if (name_search == list_names->at(i)) {
+				result_indices.push_back(i);
+			}
+			for (int j=0; j<name_parts.size(); j++) {
+				if (list_names->at(i).contains(name_parts[j], Qt::CaseInsensitive)) {
+					result_indices.push_back(i);
+				}
+			}
+		}
+		if (aggregate == "") {
+			result_indices.push_back(i);
+		}
+	}
+	for (unsigned int i=0; i<result_indices.size(); i++) {
+		table_teams->appendRow(new QStandardItem(list_numbers->at(result_indices[i])));
+		table_teams->setItem(i, 1, new QStandardItem(list_names->at(result_indices[i])));
+		table_teams->setItem(i, 2, new QStandardItem(list_websites->at(result_indices[i])));
+		table_teams->setItem(i, 3, new QStandardItem(list_countries->at(result_indices[i])));
+		table_teams->setItem(i, 4, new QStandardItem(list_states->at(result_indices[i])));
+		table_teams->setItem(i, 5, new QStandardItem(list_cities->at(result_indices[i])));
+	}
 }
 void DispWindow::on_pushButton_browse_clicked()
 {

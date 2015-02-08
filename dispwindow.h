@@ -1,6 +1,8 @@
 #ifndef DISPWINDOW_H
 #define DISPWINDOW_H
 
+#include <vector>
+
 #include <QDebug>
 
 #include <QTableView>

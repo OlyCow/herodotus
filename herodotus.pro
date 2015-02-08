@@ -4,20 +4,24 @@
 #
 #-------------------------------------------------
 
-QT       += core gui\
-			network
+CONFIG +=	c++11
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT +=	core gui \
+		network
+
+greaterThan(QT_MAJOR_VERSION, 4): QT +=	widgets
 
 TARGET = herodotus
 TEMPLATE = app
 
 
-SOURCES += main.cpp\
-        dispwindow.cpp \
-    herodotus.cpp
+SOURCES +=	main.cpp \
+			dispwindow.cpp \
+			herodotus.cpp
 
-HEADERS  += dispwindow.h \
-    herodotus.h
+HEADERS +=	dispwindow.h \
+			herodotus.h
 
-FORMS    += dispwindow.ui
+FORMS +=	dispwindow.ui
+
+QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.6
