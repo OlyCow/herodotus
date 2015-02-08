@@ -756,6 +756,12 @@
         <property name="text">
          <string>Search</string>
         </property>
+        <property name="autoDefault">
+         <bool>true</bool>
+        </property>
+        <property name="default">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>
@@ -827,6 +833,22 @@
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>lineEdit_number</tabstop>
+  <tabstop>lineEdit_name</tabstop>
+  <tabstop>comboBox_rookie</tabstop>
+  <tabstop>comboBox_country</tabstop>
+  <tabstop>comboBox_state</tabstop>
+  <tabstop>lineEdit_city</tabstop>
+  <tabstop>pushButton_clear</tabstop>
+  <tabstop>pushButton_search</tabstop>
+  <tabstop>pushButton_browse</tabstop>
+  <tabstop>tableView_main</tabstop>
+  <tabstop>comboBox_season</tabstop>
+  <tabstop>pushButton_game</tabstop>
+  <tabstop>pushButton_about</tabstop>
+  <tabstop>pushButton_close</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
