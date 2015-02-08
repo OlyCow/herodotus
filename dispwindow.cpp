@@ -107,7 +107,7 @@ DispWindow::~DispWindow()
 void DispWindow::showTeamDetails(QModelIndex table_index)
 {
 	QString team_number = table_teams->item(table_index.row())->text();
-	DetailsWindow* detailsWindow = new DetailsWindow(ui->comboBox_season->currentIndex(), team_number, this);
+	DetailsWindow* detailsWindow = new DetailsWindow(ui->comboBox_season->currentIndex(), team_number, 0);
 	detailsWindow->show();
 }
 
