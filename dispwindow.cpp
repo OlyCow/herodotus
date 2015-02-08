@@ -192,7 +192,7 @@ void DispWindow::on_pushButton_search_clicked()
 				result_indices.push_back(i);
 			}
 			for (int j=0; j<name_parts.size(); j++) {
-				if (list_names->at(i).contains(name_parts[j])) {
+				if (list_names->at(i).contains(name_parts[j], Qt::CaseInsensitive)) {
 					result_indices.push_back(i);
 				}
 			}
