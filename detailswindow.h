@@ -28,10 +28,17 @@ public:
 	~DetailsWindow();
 
 private slots:
+	void fwd_pic();
+	void rev_pic();
+
+	void on_pushButton_L_clicked();
+	void on_pushButton_R_clicked();
+
 	void on_pushButton_close_clicked();
 
 private:
 	Ui::DetailsWindow *ui;
+	QTimer* timer_anim;
 	int season;
 	QString number;
 };

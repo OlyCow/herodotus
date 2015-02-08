@@ -21,7 +21,13 @@
     <pointsize>10</pointsize>
    </font>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
+  <layout class="QGridLayout" name="layout_main">
+   <property name="leftMargin">
+    <number>12</number>
+   </property>
+   <property name="rightMargin">
+    <number>12</number>
+   </property>
    <item row="0" column="0" colspan="2">
     <widget class="QLabel" name="label_number">
      <property name="font">
@@ -43,7 +49,7 @@
     </widget>
    </item>
    <item row="1" column="0" colspan="2">
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="label_name">
      <property name="font">
       <font>
        <pointsize>12</pointsize>
@@ -61,65 +67,74 @@
     </widget>
    </item>
    <item row="2" column="0" rowspan="2">
-    <layout class="QFormLayout" name="formLayout">
+    <layout class="QFormLayout" name="layout_info">
+     <property name="rowWrapPolicy">
+      <enum>QFormLayout::WrapLongRows</enum>
+     </property>
+     <property name="formAlignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="verticalSpacing">
+      <number>12</number>
+     </property>
      <item row="0" column="0">
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="label_season_label">
        <property name="text">
         <string>Rookie Season:</string>
        </property>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLabel" name="label_3">
+      <widget class="QLabel" name="label_season">
        <property name="text">
         <string>???</string>
        </property>
       </widget>
      </item>
      <item row="2" column="0">
-      <widget class="QLabel" name="label_4">
+      <widget class="QLabel" name="label_country_label">
        <property name="text">
         <string>Country:</string>
        </property>
       </widget>
      </item>
      <item row="3" column="0">
-      <widget class="QLabel" name="label_5">
+      <widget class="QLabel" name="label_state_label">
        <property name="text">
         <string>State/Province:</string>
        </property>
       </widget>
      </item>
      <item row="4" column="0">
-      <widget class="QLabel" name="label_6">
+      <widget class="QLabel" name="label_city_label">
        <property name="text">
         <string>City:</string>
        </property>
       </widget>
      </item>
      <item row="4" column="1">
-      <widget class="QLabel" name="label_7">
+      <widget class="QLabel" name="label_city">
        <property name="text">
         <string>???</string>
        </property>
       </widget>
      </item>
      <item row="3" column="1">
-      <widget class="QLabel" name="label_9">
+      <widget class="QLabel" name="label_state">
        <property name="text">
         <string>???</string>
        </property>
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QLabel" name="label_8">
+      <widget class="QLabel" name="label_country">
        <property name="text">
         <string>???</string>
        </property>
       </widget>
      </item>
      <item row="1" column="0" colspan="2">
-      <spacer name="verticalSpacer">
+      <spacer name="spacer_info_top">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
@@ -135,7 +150,7 @@
       </spacer>
      </item>
      <item row="6" column="0" colspan="2">
-      <widget class="QLabel" name="label_10">
+      <widget class="QLabel" name="label_website">
        <property name="text">
         <string>http://???</string>
        </property>
@@ -148,7 +163,7 @@
       </widget>
      </item>
      <item row="7" column="0" colspan="2">
-      <spacer name="verticalSpacer_2">
+      <spacer name="spacer_info_bottom">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
@@ -161,7 +176,7 @@
       </spacer>
      </item>
      <item row="5" column="0" colspan="2">
-      <spacer name="verticalSpacer_3">
+      <spacer name="spacer_info_mid">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
@@ -179,7 +194,13 @@
     </layout>
    </item>
    <item row="2" column="1">
-    <widget class="QLabel" name="label_11">
+    <widget class="QLabel" name="label_pic">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
      </property>
@@ -192,9 +213,9 @@
     </widget>
    </item>
    <item row="3" column="1">
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <layout class="QHBoxLayout" name="layout_nav">
      <item>
-      <spacer name="horizontalSpacer">
+      <spacer name="spacer_pic_L">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -207,7 +228,25 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="pushButton_L">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
        <property name="focusPolicy">
         <enum>Qt::ClickFocus</enum>
        </property>
@@ -217,10 +256,31 @@
        <property name="autoDefault">
         <bool>false</bool>
        </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="pushButton_R">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
        <property name="focusPolicy">
         <enum>Qt::ClickFocus</enum>
        </property>
@@ -230,10 +290,13 @@
        <property name="autoDefault">
         <bool>false</bool>
        </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer_2">
+      <spacer name="spacer_pic_R">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
