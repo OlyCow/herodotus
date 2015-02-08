@@ -184,6 +184,7 @@ void DispWindow::on_pushButton_search_clicked()
 			name_parts.push_back(match);
 		}
 	}
+	QString aggregate = number_search + name_search + city_search;
 	for (int i=0; i<list_numbers->size(); i++) {
 		if (number_search != "" && number_search == list_numbers->at(i)) {
 			result_indices.push_back(i);
@@ -196,6 +197,9 @@ void DispWindow::on_pushButton_search_clicked()
 					result_indices.push_back(i);
 				}
 			}
+		}
+		if (aggregate == "") {
+			result_indices.push_back(i);
 		}
 	}
 	for (unsigned int i=0; i<result_indices.size(); i++) {
