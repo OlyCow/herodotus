@@ -29,7 +29,7 @@ DetailsWindow::DetailsWindow(int current_season, QString team_number, QWidget* p
 			break;
 		}
 	}
-	QString pic_dir_str = QCoreApplication::applicationDirPath() + "/data/";
+	QString pic_dir_str = QCoreApplication::applicationDirPath() + "/data";
 	QString season_dir_str = Herodotus::name_text[season];
 	season_dir_str.remove(".txt");
 	pic_dir_str += season_dir_str + "/";
@@ -40,10 +40,9 @@ DetailsWindow::DetailsWindow(int current_season, QString team_number, QWidget* p
 	}
 	pic_dir.setFilter(QDir::Files);
 	pic_dir.setSorting(QDir::Name);
-//	pic_dir.setNameFilters(QStringList("*.png"));
 	list_pics = pic_dir.entryList();
 	if (list_pics.size() > 0) {
-		current_pic = new QPixmap(list_pics[0]);
+		current_pic->load(pic_dir_str + list_pics[0]);
 	}
 
 	QString title = "Herodotus - Team #" + number + ": " + name;
