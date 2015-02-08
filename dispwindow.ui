@@ -89,6 +89,9 @@
       </item>
       <item>
        <widget class="QPushButton" name="pushButton_game">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>Game Info</string>
         </property>
@@ -109,6 +112,9 @@
       </item>
       <item>
        <widget class="QPushButton" name="pushButton_about">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>About Herodotus</string>
         </property>
@@ -582,6 +588,9 @@
       </item>
       <item row="2" column="2">
        <widget class="QComboBox" name="comboBox_rookie">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="sizePolicy">
          <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
           <horstretch>0</horstretch>
