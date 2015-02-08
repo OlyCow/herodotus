@@ -39,6 +39,9 @@ DispWindow::DispWindow(QWidget *parent) :
 	ui->tableView_main->setColumnWidth(4, 36);
 	ui->tableView_main->setColumnWidth(5, 135);
 
+	QObject::connect(	ui->tableView_main,	&QTableView::doubleClicked,
+						this,				&DispWindow::showTeamDetails);
+
 	ui->comboBox_rookie->insertSeparator(1);
 	ui->comboBox_country->insertSeparator(1);
 	ui->comboBox_country->insertSeparator(5);
@@ -99,6 +102,13 @@ DispWindow::~DispWindow()
 //	delete list_teams;
 //	delete manager;
 	delete ui;
+}
+
+void DispWindow::showTeamDetails(QModelIndex table_index)
+{
+	QString team_number = table_teams->item(table_index.row())->text();
+	DetailsWindow* detailsWindow = new DetailsWindow(ui->comboBox_season->currentIndex(), team_number, this);
+	detailsWindow->show();
 }
 
 void DispWindow::clear_table()

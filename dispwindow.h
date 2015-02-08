@@ -27,7 +27,8 @@
 #include <QMessageBox>
 #include <QProgressDialog>
 
-#include"herodotus.h"
+#include "herodotus.h"
+#include "detailswindow.h"
 
 namespace Ui {
 class DispWindow;
@@ -52,6 +53,8 @@ signals:
 //	void download_done(int year);
 
 private slots:
+	void showTeamDetails(QModelIndex table_index);
+
 	void clear_table();
 	void populate_table(int index);
 

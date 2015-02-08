@@ -17,11 +17,14 @@ TEMPLATE = app
 
 SOURCES +=	main.cpp \
 			dispwindow.cpp \
-			herodotus.cpp
+			herodotus.cpp \
+    detailswindow.cpp
 
 HEADERS +=	dispwindow.h \
-			herodotus.h
+			herodotus.h \
+    detailswindow.h
 
-FORMS +=	dispwindow.ui
+FORMS +=	dispwindow.ui \
+    detailswindow.ui
 
 QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.6
