@@ -7,6 +7,7 @@
 
 #include <QString>
 #include <QRegularExpression>
+#include <QTextStream>
 
 #include <QDir>
 #include <QFile>
@@ -40,7 +41,13 @@ private:
 	Ui::DetailsWindow *ui;
 	QTimer* timer_anim;
 	int season;
+
 	QString number;
+	QString name;
+	QString website;
+	QString country;
+	QString state;
+	QString city;
 };
 
 #endif // DETAILSWINDOW_H

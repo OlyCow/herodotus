@@ -10,10 +10,34 @@ DetailsWindow::DetailsWindow(int current_season, QString team_number, QWidget* p
 {
 	ui->setupUi(this);
 
-	QString title = "Herodotus - Team #" + number + ": ";
+	QDir data_dir(QCoreApplication::applicationDirPath() + "/data/");
+	QFile data_file(QString(data_dir.absolutePath() + Herodotus::name_text[season]));
+	data_file.open(QFile::ReadOnly | QFile::Text);
+	QTextStream buf(&data_file);
+	QString data_read = buf.readLine();
+	while (!buf.atEnd()) {
+		data_read = buf.readLine();
+		QRegularExpression finder("\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\"");
+		QString number_temp = finder.match(data_read).captured(1);
+		if (number_temp == number) {
+			name = finder.match(data_read).captured(2);
+			website = finder.match(data_read).captured(3);
+			country = finder.match(data_read).captured(4);
+			state = finder.match(data_read).captured(5);
+			city = finder.match(data_read).captured(6);
+			break;
+		}
+	}
+
+	QString title = "Herodotus - Team #" + number + ": " + name;
 	this->setWindowTitle(title);
 
 	ui->label_number->setText("Team #" + number);
+	ui->label_name->setText(name);
+	ui->label_country->setText(country);
+	ui->label_state->setText(state);
+	ui->label_city->setText(city);
+	ui->label_website->setText("<a href=\"" + website + "\">Team Website<\\a>");
 
 	QObject::connect(	timer_anim,	&QTimer::timeout,
 						this,		&DetailsWindow::fwd_pic);
